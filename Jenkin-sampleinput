@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+    stage('Approver')
+    {
+    input {
+  message 'Do you want to deploy build to prod'
+  ok 'Yes'
+  parameters {
+    choice choices: ['Bad ', 'Good', 'Very Good'], description: 'How much you rate the application', name: 'Rating'
+  }
+}
+steps
+{
+    echo 'Approval stage'
+}
+    }
+}
+}
